@@ -1,0 +1,4 @@
+rootProject.name = 'MVC-with-Facede-Exercise'
+include "EventMicroservice"
+include "TokenGeneratorMicroservice"
+include 'Client'
