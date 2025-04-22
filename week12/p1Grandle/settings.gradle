@@ -1,0 +1,3 @@
+// is a file where you set up some high-level configuration for the project
+// this case: code set project name with the following code
+rootProject.name = 'Gradle'

@@ -1,0 +1,25 @@
+Fault Tolerance:
++ system bei fehler auftritt troztdem zu funktionieren
++ fehlerart: node failures, network partitions, malicious attacks
++ ziel: fehlertoleranz fuer Zuverlässigkeit und Verfügbarkeit verteilten Systems sicherzustellen
+
+Node Availability
++ accessibility, operational status of individual nodes: nodes = pc oder server
++ accessibility: Nodes muss erreichbar sein, sonnst dieste diese nodes ausfall
++ operational status: diesnte bei betrieb in Node muss ordnungsgemaess funktionieren
+
+pickledb
++ key-value-db struktur um JSON-datein zu speichern
++ typische operationen:
+    - load(file_path, auto_dump): load daten/ erstelle, auto_dump meist false
+    - dump                      : safe aktuelle state
+    - set                       : add key-value paar oder update ein vorhandenen
+    - get, delete/ rem          :
+    - exist, getall             :
+    - append, lgetall           : add value zu list, wenn not exist erstellt es ein. listGettall
+    - dcreate, dadd             : erstellt neue dictionary. add key-value zu einen dictionari hinzu
+
+
+
+
+

@@ -1,0 +1,15 @@
+strangler pattern
++ teilt schrittweise monolithische anwendung in microservices-architechtur ein
+    - monolithisch:     alle funktionen und dienste in einen system/program integriert
+    - microservices:    kleine unabhaengige dienste und funktionen, definierte schnittstellen
++ aufbau:
+    - strangler fassade: fassade als vermittler zwischen client und system, leitet an monolith weiter
+    - hinter faccade werden alte systeme nach und nach von neuen microservices ersetzt
+    - meisten function anders callen
+
++ kernidee:
+    - function in ein class trennen auf mehrere mit kleine dienste
+    - deswegen function zwischen diese classen delegate da diese meist von einander abhaengen, siehe beispiel
+
+
+

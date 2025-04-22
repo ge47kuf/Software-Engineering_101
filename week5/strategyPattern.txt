@@ -1,0 +1,18 @@
+strategy pattern
++ familien von algorithm definieren und diese separate zu trennen, bei benutzen auszutauschen
+
+aufbau:
++ strategy: diese interface def methode die von spezifischen strategien implementieren muessen
++ concrete strategies: diese klassen implementiert die methoden von interface
+
+linear search:
++ loop itteration
+
+binary search
++ sortierte struktur
++ suchinterval habieren
++ 2 ptr high and low, mid = (low + high) / 2
+
+kernidee:
++ einheitliches interface und viele class die es implements mit gleichen methode
++ weiterleiten zu dem richtigen class, achte auf richtige runtime class.function call

@@ -1,0 +1,36 @@
+REST sowas wie ein interface, funktionen daten verschiedene systeme auszutauschen
++ 4 methoden: GET: Daten abrufen.
+              POST: Neue Daten erstellen.
+              PUT: Bestehende Daten aktualisieren.
+              DELETE: Daten löschen.
++ in detail sieht es so aus: GET /api/items/{id}: Ruft Informationen über das Item mit der angegebenen ID ab.
+                             POST /api/items: Erstellt ein neues Item mit den Daten im Request Body.
+                             PUT /api/items/{id}: Aktualisiert das Item mit der angegebenen ID mit den neuen Daten im Request Body.
+                             DELETE /api/items/{id}: Löscht das Item mit der angegebenen ID.
+
+MVC pattern
++ bei organisation von code in web application, klare trennung der verantwortlichkeit
++ trennung in 3 hauptteilen: Model: Repräsentiert die Datenstruktur, Geschäftslogik und Regeln der Anwendung.
+                             View: Präsentiert Daten dem Benutzer und generiert die Benutzeroberfläche.
+                             Controller: Verarbeitet die Benutzereingaben, interagiert mit dem Model und wählt die
+                                         entsprechende View zur Darstellung der Antwort aus.
++ zusammenhang mit REST API:
+POST und controller:    controller nimmt POST request und verarbeitet diese
+                        erstellen aktuallisieren Daten beeinfluss Model
+                        View von Responce der controller und verarbeitete Daten
+
+webClient in Java und MVC, REST
++ handling von asynchronen responce
++ aufbau von GET POST PUT DELETE request in REST mit jeweil:
+                              webclient.get()
+                              webclient.post()
+                              webclient.put()
+                              webclient.delete() und toBodilessEntity() bei kein antwort noetig
++ methode subscribe() und lambda ausdruck um anfrage zu implementieren
++ error handling ueber onErrorStop()
+
+
+
+
+
+

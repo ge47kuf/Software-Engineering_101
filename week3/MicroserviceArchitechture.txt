@@ -1,0 +1,55 @@
+microservices
++ anwendung als sammlung kleine dienste
++ unabhaengig von einander, skalierbar, wartungs leicht
+
+spring boot
++ ermoeglich unabhaengige dienste miteinander kommunizieren
++ fuer intelij muss gradle run um spring boot zu instalieren
+
+CompletableFuture
++ fuer asynchroner methoden moeglich
++ haupsaechliche methoden:
+    - supplyAsync:  starte ein asynchroner operation
+    - thenApply:    Transformiert das Ergebnis des Futures
+    - thenAccept:   Aktion auszuführen
+    - thenRun:      Führt eine Aktion aus, die kein Eingabeargument benötigt
+    - exceptionally:Handhabung von Fehlern
+
+BlockingQueue<> queue = new LinkedBlockingQueue<>();
++ add und remove auf queue von race condition und synch probleme sicherstellen durch blockingqueue
+    mehrere thread hier add/rm moeglich
++ operationen bei vollen queue thread blockiert
++ typische operationen:
+    - put       : add am ende der queue
+    - take      : return and rm head element
+    - offer     : try add element, wait fix amount of time til space available
+    - poll      : try return and rm head element, wait fic amount of time til space free
+
+HttpHeaders
++ darstellen von HTTP-Header-Werten als key-value-paar
++ bestimmen medientyp zb:  application/json
++ typische call function
+    - .set              :   Wert eines Headers
+    - .add              :   fügt einen Header hinzu
+    - .setContentType   : set ein content type
+    - .setAccept :
+    - .get, .getFirst   : get werte
+
+HttpEntity<T>
++ fuer http kommunikation, request responce -> zb senden von tweet ueber http
++ typische call function
+    - new HttpEntity<>(T body, HttpHeaders headers)
+    - HttpEntity<T>.empty()
+    - .postForEntity                : sendet ein POST request
+    - .exchange                     : fuehrt austausch von anfragen und antworten aus
+    - .getBody(), .getHeaders()     : get methode
+
+ResponseEntity
++ repraesentaion eines http antwort mit statuscode haeder, body
++ um kontrolle ueber den antwort zu ermoeglichen
++ typische call:
+    - ok()          : Baut ResponseEntity Statuscode 200 OK auf
+    - notFound()    : Baut ResponseEntity Statuscode 404 Not Found.
+    - status        : Setzen eines beliebigen Statuscodes.
+    - headers       : Setzen von HTTP-Headern.
+    - body          : Setzt Inhalt des Response-Body.

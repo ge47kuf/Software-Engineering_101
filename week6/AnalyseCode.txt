@@ -1,0 +1,34 @@
+IntelliJ profiler
++ profiler = tools analysiert code Performance, identify bottleneck
++ optimierung anhang ergebnis
+
+Flame graph
++ visualisierung tools: zeigt die Abfolge von function-calls over time
++ breite der sample: function zeit
++ frames die breiter sind, beanspruchen viele ressourcen
++ hilf zu erkennen welche function meist beanspruchen und optimierungsfaehig
+
+Call tree
++ visualisierung tools:
+    - zeigt aktivitaet einer anwendung, selbe wie flame graph
+    - kritische Ausführungspfade: pfade die meist zeit beanspruchen
++ hilf fluss der programmausfuehrung un bottleneck zu erkennen
+
+Method List
++ zeigt eine Liste aller Methoden, die während des Profiling ausgeführt wurden
++ ordnet functionen nach haeufigkeit ihre ausfuehrungszeit
++ hilf functionen zu identifizieren die die meiste zeit beanspruchen
+
++ Call Tree: Verwende den Call Tree, wenn du verstehen möchtest, wie dein Programm funktioniert,
+  welche Methoden wie miteinander interagieren und um komplexe Aufrufhierarchien und
+  Rekursionen zu analysieren.
++ Method List: Verwende die Method List, wenn du schnell die zeitintensivsten Methoden
+  finden und gezielte Optimierungen vornehmen möchtest.
+
+LFU (Least Frequently Used): Entfernt das am wenigsten häufig verwendete Element.
++ Verwendet einen Zähler für jeden Zugriff.
++ Gut geeignet, wenn häufig verwendete Elemente länger im Cache bleiben sollen.
+
+LRU (Least Recently Used): Entfernt das am längsten nicht verwendete Element.
++ Verwendet einen Zeitstempel oder eine Reihenfolge der Zugriffe.
++ Gut geeignet, wenn Elemente, die kürzlich verwendet wurden, im Cache bleiben sollen.

@@ -1,0 +1,76 @@
+dynamic analysis
++ check program in den code ausfuehrung / laufzeit analyse
+    - zb memory leak, overflow, use after free, Use after scope
+
+address sanitizer
++ tool zu dynamische analyse, suported by gcc / clang
+    - heap-buffer-overflow: access to heap memory ausserhalb allokierten bereich, meist durch:
+        Falsche Speicherallokation: nicht genug puffer
+        Fehlerhafte loop bedingung: array ausserhalb
+        nach malloc speicher reinigen sonnst trash in steicher zb
+            memset(volatileEssence, 0, MAX_INGREDIENT_LENGTH);
+            strcpy(volatileEssence, "Volatile Essence");
+    - stack-use-after-return: wenn daten im stack auf ein in malloc wert verwiesen wird
+        loesung: statt im stack malloc/ calloc
+
++ how to run and see issue:
+    - make all => make runa => fix => make all => make runa => check and fix ...
+
+memory sanitizer
++ tool check dynamisch memory error
++ run and see issue:
+    - clang -fsanitize=memory -g <filename.c> -o <filename.out>
+    - ./<filename.out>
+    - check ob error fixed
+
+thread sanitizer
++ detect thread related error
++ thread synch in c:
+    - Mutexes:
+        + pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+        + pthread_mutex_lock(&lock);
+          // Durchführen von Operationen auf geteilten Ressourcen
+          pthread_mutex_unlock(&lock);
+    - Condition Variables: ermoeglich threads auf ein bestimmtes bedingung zu warten
+                           waehrend mutex freigeben kann
+        + pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+        + pthread_mutex_lock(&lock);
+          // Produziere ein Item
+          pthread_cond_signal(&cond);
+          pthread_mutex_unlock(&lock);
+
+          pthread_mutex_lock(&lock);
+          while (!item_available) {
+              pthread_cond_wait(&cond, &lock);
+          }
+          // Konsumiere das Item
+          pthread_mutex_unlock(&lock);
+
+    - semaphore:
+        + sem_t sem;
+        + sem_wait(&sem);
+          // Durchführen von Operationen auf geteilten Ressourcen
+          sem_post(&sem);
+
+    - read write lock:
+        + pthread_rwlock_t rwlock = PTHREAD_RWLOCK_INITIALIZER;
+
+          void* writer(void* arg) {
+              pthread_rwlock_wrlock(&rwlock);
+              // Schreibe in die geteilte Ressource
+              pthread_rwlock_unlock(&rwlock);
+              return NULL;
+          }
+
+          void* reader(void* arg) {
+              pthread_rwlock_rdlock(&rwlock);
+              // Lese aus der geteilten Ressource
+              pthread_rwlock_unlock(&rwlock);
+              return NULL;
+          }
++ run and see issue:
+    - 
+
+
+
+

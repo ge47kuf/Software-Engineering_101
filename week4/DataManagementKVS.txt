@@ -1,0 +1,18 @@
+KVS: key-value storage
++ datenspeicherung die daten als key-value-paare speichert
++ fuer anwendung bei den schnelle read/write operationen erforderlich sind
+
+sqlitedict
++ ist ein python modul, methode key-value-speicher ueber sqlLite zu implementieren
++ db kann ueber sqltieldict zugegriffen werden wie dic in python
+    - get set,delete
+    - typisch fuer key-value, caching
+
+grundlegende konzepte
++ key: primary key von einen objekt
++ CRUD-operation:   create: inster new key-value-pair
+                    read: get objekt with key
+                    update: change/set object with a exist key
+                    delete: rm a key-value-pair
+
+schau nochmal die funktionen an, man muss das verstehen

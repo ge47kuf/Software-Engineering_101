@@ -1,0 +1,94 @@
+// gradle.wrapper directory contains a jar of the wrapper for the Gradle,
+// which allows you to use the Gradle build tool without the need for installing
+// it. You typically commit it along with the source code so that everyone who
+// gets your code doesn't need to install Gradle and has the same version of the
+// Gradle you do out of the box.
+
+// is the build script configuration file describing your application to Gradle
+// so it can build it.
+// For example, here, you might say that your application is a Java application
+// with a particular set of dependencies.
+
+// 1) code: say project is a java application
+// here add java plugins to compile other package of the project
+plugins{
+    id 'java'
+}
+
+// 2) specified java version for the project
+java {
+    sourceCompatibility = 17
+    compileJava.options.encoding = 'UTF-8'
+
+}
+
+// 3) specified import to the IDE in the build script, here import
+// net.datafaker.Faker
+
+// repositories:= allow to specified where the dependencies are, here project
+// version depend on DataFake version, the application need this to compile time
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.datafaker:datafaker:2.0.1'
+    // 6) test depend on extern JUnit, that's why have to add this
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
+
+// 4) specified where the source code is located
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+// 5) specified where the test directory is located
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
+}
+
+// 7) tell grandle to use JUnitPlattform to execute tests
+
+
+/*
+Task:
+Gradle is a task-based system-> means define in build scrip a single action to
+be execute running separately. bs add special option to java and test will do it for
+both separately.
+add custom task is also possible, in the following: add 2 custom task and specified
+dependencies between them, execute in correct order
+*/
+// 8) add dummy task that print output
+tasks.register('first') {
+    doLast {
+        println 'I am the first task!'
+    }
+}
+// add dummy task and make it depend on the first dummy
+tasks.register('second') {
+    dependsOn tasks.first
+    doLast {
+        println 'I am the second task!'
+    }
+}
+
+test{
+    useJUnitPlatform()
+}
+/*
+In IntelliJ IDEA you can expect the tasks you have for the project and execute them
+on the right side. If you open tha gradle tab, you can find your custom tasks along
+with the other ones, coming, for example, from Java plugin, in Tasks.other.
+If you execute the first task, you will only see the output from the first task,
+but if you run the second one, you should see the output from both, because the
+second one is dependent on the first one. If you execute the build task, you can
+see all the tasks from the Java plugin Gradle runs for you to build your application.
+After the build was successful, you can find the .jar for your application
+in build/libs folder.
+*/
+

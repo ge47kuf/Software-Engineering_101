@@ -1,0 +1,12 @@
+kernidee:
++ vereinfachung:        bietet einfache interface zu eine komplexe system
+                        -> interaction wird vereinfach
++ kapselung:            kapselt interne system, hide komplexitaet von nutzer der facade
++ trennung der bedenken:logischen trenung von teilen um code wartbarer zu machen
+
+komponent:
++ facade:   klasse die vereinfachte interface zu komplexen subsystem bereitstellt
++ subsystem:komplexe system hinter deer facade
+
++ vorgehen: umdelegieren der methoden
+meist verwendet um interaction mit komplexe system vereinfachen moechte fuer userfriendly

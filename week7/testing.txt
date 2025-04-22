@@ -1,0 +1,41 @@
+Unit test
++ import static org.junit.jupiter.api.Assertions.*;
++ @Test := testmethoden definieren
++ @BeforeEach := vor jeden Test ausgefuehrt, meist um Testdaten/zustaende initialisieren
++ @AfterEach := nach jeden Test ausgefuehrt, meist um testzustaende aufzuraeumen
++ @BeforeAll := einmal vor allen Test ausgefuehrt, muss statisch sein
++ @AfterAll := einmal nach allen Testausgefuehrt, muss statisch sein
+
++ Assertions.assertEquals(expected, actual): Überprüft, ob zwei Werte gleich sind.
++ Assertions.assertNotEquals(unexpected, actual): Überprüft, ob zwei Werte ungleich sind.
++ Assertions.assertTrue(condition): Überprüft, ob eine Bedingung wahr ist.
++ Assertions.assertFalse(condition): Überprüft, ob eine Bedingung falsch ist.
++ Assertions.assertNull(value): Überprüft, ob ein Wert null ist.
++ Assertions.assertNotNull(value): Überprüft, ob ein Wert nicht null ist.
++ Assertions.fail(message): Erzwingt ein Testfehler mit einer benutzerdefinierten Nachricht.
+
++ assertThrows(MalformedURLException.class, ()->{onlineCourse.setUrl("invalidURL")};
+    testet methode die throw exeption, lambda operation triggert diese aus
+
+Mock Testing
++ simuliert abhaengige objekte um anderen zu testen
++ mock object: mock verhalten von echten objekt und return wert
++ easy mock:
+    - mock object create:
+        EasyMock.mock(Class<T> toMock) oder @Mock !@Mock bei jeden object schreiben
+    - behavior definieren:
+        expect(mock.method()).andReturn(value)
+    - mock object activate:
+        EasyMock.replay(mock)
+    - verify um sicherstellen mock object richtig verwendet:
+        EasyMock.verify(mock)
+
++  hier wurde alle parameter gecheckt if startCourseDiscussion
+          assertTrue(discussion.startCourseDiscussion(courseMock, student, topic));
+          // check if startCourseDiscussion() check the given parameter
+          assertEquals(courseMock, discussion.getCourse());
+          assertEquals(topic, discussion.getTopic());
+
+
+
+

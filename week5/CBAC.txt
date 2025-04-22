@@ -1,0 +1,29 @@
+Capability-Based Access Control: sicherheitsmodel die zugriff auf res regelt
+
+ACL: access control list
++ zugriffsrecht basierend auf user und rollen
++ CBAC zugriffsrecht basierend auf capabilities
+    - capabilities: rechte die ein process, anwendung gegeben wird
+    - acl bs: user1 hat rwx, user2 hat rw-
+    - cbac bs: cloud filesystem, read an app1, write an app2
++ verwaltung  von rechte auf dynamische umgebung zb cloud system
++ aufbau von cbac:
+    - Application: Anwendung, die bestimmte Capabilities erhalten.
+    - Capability: definiert spezifische Berechtigungen, zb. rwx.
+    - CapabilityManager: verwaltet Capabilities auf apps
+    - FileAccessController: überprüft, ob Anwendung erforderlichen Capabilities hat,
+                            Aktionen durchzuführen
+
+hash, set file in java
++ set: mengen von objects, keine doppelung
++ hashmap: key-value-paare
+    - Set<Permission> permissions = acl.computeIfAbsent(tmp, k -> new HashSet<>());
+      permissions.add(permission);
+      acl.put(tmp, permissions); // diese zeile nicht noetig da permissions referenz speichert
+
++ file: daten und verzeichnispfade, similar zu unix file-system
+    - createNewFile(): Erstellt eine neue Datei, wenn diese noch nicht existiert.
+      delete(): Löscht die Datei oder das Verzeichnis.
+      exists(): Überprüft, ob die Datei oder das Verzeichnis existiert.
+      isDirectory(): Überprüft, ob das File-Objekt ein Verzeichnis ist.
+      listFiles(): Gibt die Dateien eines Verzeichnisses als Array von File-Objekten zurück.

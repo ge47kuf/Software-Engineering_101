@@ -1,0 +1,30 @@
+1. basic von gRPC - remote procedure call
+    + kommunikation verschiedene dieste innerhalb eines infastuktur zb microservies Architekturen
+    + großen Web-Plattformen wie Netflix, Google und Spotify.
+    + situation: netflix nutz vielen Mikroservices wie: authent., Video-Streaming, Content-Empfehlungen, zahlung meth
+                 diese dienste muessen sich untereinander kommunizieren,
+    + kommunikation fokus hier auf server client
+
+2. funktionsweise:
+    + Definition:
+        definieren Dienstmethoden in einer .proto-Datei, geben Ein- und Ausgabetypen an.
+        gRPC stellt Werkzeuge bereit, um Client- und Servercode aus  .proto-Dateien zu generieren.
+    + Server und Client:
+        Server implementiert Dienstschnittstellen, führt gRPC-Server, um Clientanrufe zu bearbeiten.
+        Client hat einen Stub (in anderen Kontexten als Client bezeichnet), der dieselben Methoden wie Server bietet.
+    + Methoden aufrufen:
+        Clients können Methoden aufrufen. gRPC kümmert sich um Details der Netzwerkkommunikation,
+        Serialisierungs-/Deserialisierungsprozess.
+
+3. summary gRPC wird häufig in verteilten Systemen und bei Anwendungen eingesetzt, die eine zuverlässige und effiziente
+   Kommunikation zwischen Microservices benötigen, wie zum Beispiel in Cloud-Infrastrukturen,
+   Echtzeitdatenverarbeitungssystemen und interaktiven Anwendungen.
+
+4. java and gRPC
+    + Define a Service: You'll start by defining your service in a .proto file.
+    + Generate Code: Using the protocol buffer compiler (protoc), you generate the server and client code.
+    + command to get start:
+        1. implement .proto file via UML
+        2. generate proto class using gradle build, result in build/generated/source/proto/main
+        3. implement task
+    +

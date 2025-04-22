@@ -1,0 +1,49 @@
++ git basic
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
+
+    Creating Repositories
+    git init //Initialize a local Git repository in the current directory.
+
+    git clone https://github.com/user/repo.git
+
+    git status
+    git add <file>          # Add a single file
+    git add .               # Add all changes in the directory
+    git commit -m "Commit message"
+    git rm <file>
+    git mv <oldfile> <newfile> //Move or rename a file, a directory, or a symlink.
+    git branch              # List all local branches
+    git branch <branch>     # Create a new branch
+    git branch -d <branch>  # Delete a branch
+    git checkout <branch>   # Switch to a branch
+    git checkout -b <branch> # Create and switch to a new branch
+    git merge <branch>
+    git push origin <branch>
+    git fetch origin //Download objects and refs from another repository.
+    git log //Show commit logs.
+    git diff             # Show changes in the working directory that are not staged
+    git diff --staged    # Show changes between staging area and the last file version
+    git show <commit>
+    git tag <tagname> <commitid>   # Create a new tag
+
++ commit and push
+    git add . // add what ever to be push
+    git commit // commit to branch with message
+    git push
+
+vorgehen:
+    git branch                  :to see all te branch
+    git checkout <branchname>   :to choose them
+    git checkout main           : switch back to main
+    git merge <branchname>      : merge the chosen one
+    push
+
+
+
+
+
+
+
+
+

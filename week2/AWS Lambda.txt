@@ -1,0 +1,39 @@
+how to deploy a function
++ ./gradlew buildZip -> create build dir.alternativ ./gradlew.bat buildZip
++ deploy function:  aws lambda create-function ^
+                        --function-name addition ^
+                        --runtime java17 ^
+                        --zip-file fileb://build\distributions\L02PB02---AWS-Lambda-1.0.0.zip ^
+                        --handler de.tum.cit.dos.eist.AdditionFunction ^
+                        --role arn:aws:iam::000000000000:role/lambda-role ^
+                        --endpoint-url=http://localhost:4566 ^
+                        --timeout 10 ^
+                        --region us-east-1
++ update function:  aws lambda update-function-code ^
+                        --function-name addition ^
+                        --endpoint-url=http://localhost:4566 ^
+                        --zip-file fileb://build\distributions\L02PB02---AWS-Lambda-1.0.0.zip ^
+                        --region us-east-1
++ delete function:  aws lambda delete-function ^
+                        --function-name addition ^
+                        --endpoint-url=http://localhost:4566 ^
+                        --region us-east-1
+!!! in power shell muss ^ mit ` geschrieben werden, alles
+
+how to create a function url:
++ vor create function:
+localstack start
+localstack status -> muss aktiv sein, siehe docker
++ aws lambda create-function-url-config `
+      --function-name addition `                funtion name hier eingeben
+      --endpoint-url=http://localhost:4566 `
+      --region us-east-1 `
+      --auth-type NONE
++ aws lambda get-function-url-config `          um die url zu bekommen
+      --function-name addition `
+      --endpoint-url http://localhost:4566 `
+      --region us-east-1
+
++curl -X POST "http://0b8cssv6wysre7fblgrua2ejrbk4vwsh.lambda-url.us-east-1.localhost.localstack.cloud:4566/" \
+      -H "Content-Type: application/json" \
+      -d "{\"x\": 5, \"y\": 2}"

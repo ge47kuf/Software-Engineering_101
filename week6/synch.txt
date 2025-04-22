@@ -1,0 +1,10 @@
+concurrency
++ race condition:
+    - synchronized  : methode kann nur von ein thread paralle angewendet werden
+    - mutex         : 1 cap sem, lock/unlock noetig
+
+
+
+
+
+

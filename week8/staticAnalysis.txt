@@ -1,0 +1,24 @@
+spotbug
++ run in intellij:
+    - right click project file
+    -  SpotBugs -> Analyze Project Files Not Including Test Files
+
+infer
++ analyse tools fuer static code => analyse code vor ausfuehrung
++ run infer in docker
+    - navigate to file wo dockerfile datei liegt
+    - terminal> docker build -t infer .
+    - terminal> docker run -it --rm -v $PWD/src:/eist23l08p02-exercise infer /bin/bash
+    - root@1bd9bf410781:/#    //man ist nun in docker terminal
+    - navigate to directory
+    - root@1bd9bf410781:/eist23l08p02-exercise> infer run -- javac de/tum/in/ase/eist/*.java
++ infer show issues in terminal
+    - fix issue and check with run terminal again to see if fixed
+    - root@1bd9bf410781:/eist23l08p02-exercise> infer run -- javac de/tum/in/ase/eist/*.java
++ clean up
+    - rm infer.out and .class file to clean up
+
+
+
+
+

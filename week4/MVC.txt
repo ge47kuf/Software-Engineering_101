@@ -1,0 +1,32 @@
+anwendung in 3 komponente unterteilen
++ model:        repaesentiert Daten, verwaltet Daten, fuehrt operationen (call, safe, update, remove,...) durch
+                model unabhangig von user-oberflaeche (view) -> hat kein darstellungscode
++ view:         darstellung Daten die von Model kommt, praesenteiert Daten fuer user
++ controller:   vermittler zwischen model und view, enthaelt anwendungslogic und steuert datenfluss
+
+bs: online shop
++ onlineshop ist zb Model: Klasse die User-Info, product-info, order-info speichert
+                    View:  HTML-Seiten oder GUI-Komponenten sein, die die Produktinformationen anzeigen.
+                    Controller: input user, zb add in warenkorb -> update in Model und darstellen in View
+ablauf
++ user input: user interation mit view
++ view leitet input in an controller weiter
++ controller verarbeitet und befehl model aktionen durchzufuehren
++ model fuehrt anderungen durch, update die daten
++ controller befehl view neue daten von model aufzurufen und anzuzeigen
+
+JavaFX
++ java lib zu erstellen grafische-UI, bietet viele funktionen
++ daten update in java sql: siehe L04P04 -> DatabaseHelper.java
+    1. sql abfrage erstellen
+    2. verbinde mit sql
+    3. parameter setzen
+    4. updaten
+    5. ergebnis pruefen
+    6. fehlerbehandlung
+
+JDBC: java database connectivities
++ API, ermoeglich von Java aus auf relationale DB zuzugreifen
+
+
+

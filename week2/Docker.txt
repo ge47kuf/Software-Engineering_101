@@ -1,0 +1,46 @@
+allgemein docker
++ Entwickeln, Verteilen und Ausführen von Anwendungen innerhalb leichtgewichtiger, tragbarer Container
++ container:= executable paket mit alles noetige um software auszufuehren
+
+Dockerfile
++ enthaelt alle command die user auf terminal ausfuehren koente um ein Image zu erstellen, aehlich wie shebang in C
+
+Dockerfile command
++ from: Basis Image das Docker Image verwenden soll zb. FROM openjdk:17-bullseye fuer java
++ workdir: legt arbeitsverzeichnis in Docker Container fest
++ copy: Kopiert Dateien vom lokalen Dateisystem in Container. wird verwendet, um ausführbare Jar Anwendung und
+        andere notwendige Dateien in Image zu übertragen.
++ CMD: Gibt den Befehl an, der ausgeführt wird, wenn Container startet.
++ RUN: Führt Shell-Befehle in aktuellen Docker-Schicht aus und übernimmt Ergebnisse.
+       Das resultierende übernommene Image wird für nächsten Schritt im Dockerfile verwendet.
+
+erstellen von Dockerfile
++ Basis-Image festlegen:                                                                FROM openjdk:17-bullseye
++ Arbeitsverzeichnis festlegen:
+    WORKDIR /app
++ Das gebaute Anwendungs-Jar kopieren: Angenommen Jar befindet sich in ./build/libs ->  COPY ./build/libs/*.jar app.jar
++ Das Start-Skript kopieren:                                                            COPY start.sh start.sh
++ Das Start-Skript ausführbar machen:                                                   RUN chmod 770 start.sh
++ Befehl zum Starten der Anwendung:                                                     CMD ./start.sh
+
+docker ps: sehe welche aktuell run
+docker exec -it <name von running container> /bin/sh -> gehe ins container rein in bin ordner
+docker inspect l02p01containers-ngrok-1 -> container-Umgebung überprüfen
+
++build.bat: exec mehrere befehle von Docker zb
+@echo off -> optiona 
+REM Build the Spring Boot application with Gradle
+call ./gradlew clean build
+
+REM Build the docker image
+call docker build -t eist-ngrok .
+
+REM Fire up the containers
+call docker compose up -d
+
+
+
+
+
+
+

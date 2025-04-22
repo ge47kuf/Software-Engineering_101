@@ -1,0 +1,13 @@
+adapter pattern
++ zusammearbeit zwischen klassen die normale weise nicht moeglich sind
+    - zb. legacy und new system
++ aufbau:
+    - target: interface die client use
+    - client: class die target interface nutz
+    - adaptee: class die angepasst werden muss, um mit target kompatibel zu sein
+    - adapter: class die target und adaptee implementiert und verbindet
++ bs:   modernPayment(target), legacyPayment(adaptee),
+        paymentAdaper(adapter), PaymentProcessor(client code)
+
+kernidee:   connect to other class/system to use there function,
+            mostly ueber interfaces und implement ueber override
